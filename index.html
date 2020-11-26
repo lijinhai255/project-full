@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, shrink-to-fit=no"
+        viewport-fit=cover />
+    <title>Document</title>
+    <style>
+        html {
+            background: #fff;
+            font-size: 56.6667px;
+            font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            /* width: 15rem; */
+            width: 14.24rem;
+            height: 12.91rem;
+            /* background: #FFFFFF; */
+            border-radius: 0rem;
+            margin: 0 auto;
+            background-color: red;
+        }
+
+        .item {
+            width: 2.04rem;
+            height: 2.02rem;
+            background-color: aliceblue;
+        }
+
+        .button {
+            width: 14.24rem;
+height: 12.91rem;
+background: #FFFFFF;
+border-radius: 0rem;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="item"></div>
+        <div class="button">button</div>
+    </div>
+    <script>
+        if (!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' +
+        '>' + '<' + '/' + 'script>');
+    }
+        (function (win) {
+            var doc = win.document;
+            var docEl = doc.documentElement;
+            var tid;
+
+            function refreshRem() {
+                var width = docEl.getBoundingClientRect().width;
+                var rem = width / 7.5;
+                docEl.style.fontSize = rem + 'px';
+            }
+
+            win.addEventListener('resize', function () {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }, false);
+            win.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    clearTimeout(tid);
+                    tid = setTimeout(refreshRem, 300);
+                }
+            }, false);
+
+            refreshRem();
+
+        })(window);
+    </script>
+</body>
+
+</html>
